@@ -1,8 +1,16 @@
+import { ThemeProvider } from 'styled-components';
+
+import { THEME } from 'config/theme';
+import { GlobalStyles } from 'styles/globalStyles';
+
+import { Routes } from './router';
+
 function App() {
   return (
-    <div>
-      <span>asdfasfas</span>
-    </div>
+    <ThemeProvider theme={THEME}>
+      <GlobalStyles />
+      <Routes />
+    </ThemeProvider>
   );
 }
 
