@@ -5,7 +5,7 @@ export const Block = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
   padding-top: 50px;
   width: 230px;
   height: 100%;
@@ -22,6 +22,7 @@ export const LinksBlock = styled.div`
 export const Link = styled(NavLink)`
   position: relative;
   text-transform: uppercase;
+  font-weight: 500;
 
   ${({ theme }) => css`
     color: ${theme.colors.black};
@@ -29,7 +30,7 @@ export const Link = styled(NavLink)`
     :after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
       left: 0;
       width: 100%;
       border: 2px solid ${theme.colors.header.textLogo};

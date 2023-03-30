@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import * as Icon from 'assets';
+
 import * as Styles from './styles';
 import { optionsWeekday, optionsTime, optionsDate } from './config';
 
@@ -26,7 +28,7 @@ export const Time = () => {
       <Styles.Week>{weekdayString}</Styles.Week>
       <Styles.DateBlock>
         <Styles.Date>{dateString}</Styles.Date>
-        <div>{timeString}</div>
+        <Icon.Clock /> <div>{timeString}</div>
       </Styles.DateBlock>
     </Styles.TimeBlock>
   );

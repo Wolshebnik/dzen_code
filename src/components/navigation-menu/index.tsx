@@ -10,8 +10,8 @@ export const NavigationMenu = () => {
       <AvatarImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrW-Jw-ZMy8KVpsK728K3CAEogswHduRgqog&usqp=CAU" />
 
       <Styles.LinksBlock>
-        <Styles.Link to={ROUTES.receipts}>Приход</Styles.Link>
-        <Styles.Link to={ROUTES.groups}>Группы</Styles.Link>
+        <Styles.Link to={ROUTES.orders}>Приход</Styles.Link>
+        <Styles.Link to={ROUTES.products}>Группы</Styles.Link>
       </Styles.LinksBlock>
     </Styles.Block>
   );

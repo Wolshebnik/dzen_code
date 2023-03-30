@@ -1,4 +1,4 @@
 export const ROUTES = {
-  receipts: '/',
-  groups: '/groups',
+  orders: '/',
+  products: '/products',
 };
