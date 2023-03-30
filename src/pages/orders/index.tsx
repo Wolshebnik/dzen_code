@@ -1,13 +1,13 @@
 import { OrderTable, Title } from 'components';
 
-// import * as Styles from './styles';
+import { orders } from 'mock';
 
 export const Orders = () => {
   return (
     <>
       <Title />
 
-      <OrderTable />
+      <OrderTable orders={orders} />
     </>
   );
 };

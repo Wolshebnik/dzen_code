@@ -15,10 +15,16 @@ export const Element = styled.div`
   height: 80px;
   border-radius: 6px;
   cursor: pointer;
+  box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.2);
+  transition: all 300ms ease-in-out;
 
   ${({ theme }) => css`
     border: 1px solid ${theme.colors.table.border};
     color: ${theme.colors.table.color};
+
+    :hover {
+      box-shadow: none;
+    }
   `}
 `;
 
