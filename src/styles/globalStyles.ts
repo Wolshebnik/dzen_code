@@ -4,6 +4,10 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize};
 
+  html {
+    height: 100%;
+  }
+
   * {
     box-sizing: border-box;
     padding: 0;
@@ -17,11 +21,16 @@ const GlobalStyles = createGlobalStyle`
     overflow-y: hidden;
     font-size: 16px;
     font-weight: 400;
+    height: 100%;
 
     ${({ theme }) => css`
       color: ${theme.colors.black};
       background-color: ${theme.colors.background};
     `}
+  }
+
+  #root {
+    height: 100%;
   }
 
   a {
