@@ -1,6 +1,7 @@
 export { AvatarImage } from './avatar-image';
 export { Button } from './button';
 export { Header } from './header';
+export { Modal } from './modal';
 export { NavigationMenu } from './navigation-menu';
 export { OrderTable } from './order-table';
 export { Popup } from './popup';

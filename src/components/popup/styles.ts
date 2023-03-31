@@ -51,8 +51,8 @@ export const Overlay = styled.div<PopupStylesProps>`
   align-items: center;
   width: 100%;
   height: 100%;
-
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 
   ${({ isDelay, duration }) => css`
     animation: ${isDelay ? fadeIn : fadeOut} ${duration}ms linear;
@@ -75,13 +75,13 @@ export const PopupContainer = styled.div<PopupStylesProps>`
 
 export const ButtonClose = styled.button`
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -20px;
+  right: -20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 
   ${({ theme }) => css`
@@ -90,6 +90,6 @@ export const ButtonClose = styled.button`
   `}
 
   :hover {
-    transform: scale(1.1);
+    transform: rotate(90deg);
   }
 `;

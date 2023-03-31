@@ -2,28 +2,40 @@ import styled, { css } from 'styled-components';
 
 export const Block = styled.div`
   display: flex;
+  align-items: flex-start;
+  gap: 10px;
+`;
+
+export const ElementBlock = styled.div`
+  display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 `;
 
 export const Element = styled.div`
   display: grid;
-  grid-template-columns: 3fr 40px 1fr 1fr 1fr 24px;
+  grid-template-columns:
+    minmax(200px, 3fr) 40px minmax(80px, 1fr) minmax(100px, 1fr)
+    minmax(100px, 1fr) 24px;
   align-items: center;
   gap: 10px;
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
   cursor: pointer;
+  overflow: hidden;
 
   ${({ theme }) => css`
-    border: 1px solid ${theme.colors.table.border};
+    background-color: ${theme.colors.white};
     color: ${theme.colors.table.color};
     box-shadow: ${theme.shadow};
+    border: 1px solid ${theme.colors.table.border};
     transition: ${theme.transition};
 
     :hover {
       box-shadow: none;
+      background-color: ${theme.colors.background};
     }
   `}
 `;
