@@ -18,6 +18,7 @@ export const COLORS = Object.freeze({
   grey,
   white,
   black,
+  green,
   table,
   header,
   background,

@@ -1,8 +1,8 @@
 import { MouseEvent, useState } from 'react';
 
 import * as Icon from 'assets';
-import { Popup } from 'components';
 import { IOrders } from 'mock/types';
+import { Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
 
@@ -14,9 +14,6 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
     console.log({ id });
   };
 
-  // eslint-disable-next-line no-console
-  console.log('pop', isOpen);
-
   const handleDelete = (event: MouseEvent<HTMLSpanElement>, id: number) => {
     event.stopPropagation();
     // eslint-disable-next-line no-console
@@ -27,13 +24,8 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
   return (
     <Styles.Block>
       <Popup isOpen={isOpen} onClose={() => onClose(false)}>
-        <div style={{ width: 300, height: 300, background: 'white' }}>
-          <h2>Popup Content</h2>
-          <p>
-            This is an example of a React popup with overlay, TypeScript and
-            animation!
-          </p>
-        </div>
+        {/*  eslint-disable-next-line no-console */}
+        <WindowDelete onClick={() => console.log('close')} />
       </Popup>
 
       {orders.map((order) => (

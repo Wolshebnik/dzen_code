@@ -12,7 +12,7 @@ export const Layout = () => {
       <Styles.WrapPage>
         <NavigationMenu />
 
-        <Styles.WrapOutlet>
+        <Styles.WrapOutlet id="wrapper">
           <Outlet />
         </Styles.WrapOutlet>
       </Styles.WrapPage>

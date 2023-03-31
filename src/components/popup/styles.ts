@@ -63,7 +63,6 @@ export const Overlay = styled.div<PopupStylesProps>`
 
 export const PopupContainer = styled.div<PopupStylesProps>`
   position: relative;
-  padding: 20px;
   border-radius: 6px;
 
   ${({ theme, isOverlayOpen, duration }) => css`
