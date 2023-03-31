@@ -9,8 +9,11 @@ export const Block = styled.nav`
   padding-top: 50px;
   width: 230px;
   height: 100%;
-  box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.2);
-  background-color: ${({ theme }) => theme.colors.white};
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.white};
+    box-shadow: ${theme.shadow};
+  `}
 `;
 
 export const LinksBlock = styled.div`
@@ -33,9 +36,9 @@ export const Link = styled(NavLink)`
       bottom: -2px;
       left: 0;
       width: 100%;
-      border: 2px solid ${theme.colors.header.textLogo};
       transform: scaleX(0);
-      transition: all 300ms ease-in-out;
+      border: 2px solid ${theme.colors.header.textLogo};
+      transition: ${theme.transition};
     }
 
     &.active {

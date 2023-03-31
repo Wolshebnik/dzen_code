@@ -7,11 +7,11 @@ export const Block = styled.div`
   align-items: center;
   padding: 0 200px;
   height: 80px;
-  box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
+    box-shadow: ${theme.shadow};
   `}
 `;
 

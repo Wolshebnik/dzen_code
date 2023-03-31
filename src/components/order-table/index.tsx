@@ -1,23 +1,41 @@
+import { MouseEvent, useState } from 'react';
+
 import * as Icon from 'assets';
+import { Popup } from 'components';
 import { IOrders } from 'mock/types';
-import { MouseEvent } from 'react';
 
 import * as Styles from './styles';
 
 export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
+  const [isOpen, onClose] = useState(false);
+
   const handleElement = (id: number) => {
     // eslint-disable-next-line no-console
     console.log({ id });
   };
 
+  // eslint-disable-next-line no-console
+  console.log('pop', isOpen);
+
   const handleDelete = (event: MouseEvent<HTMLSpanElement>, id: number) => {
     event.stopPropagation();
     // eslint-disable-next-line no-console
     console.log(id);
+    onClose(true);
   };
 
   return (
     <Styles.Block>
+      <Popup isOpen={isOpen} onClose={() => onClose(false)}>
+        <div style={{ width: 300, height: 300, background: 'white' }}>
+          <h2>Popup Content</h2>
+          <p>
+            This is an example of a React popup with overlay, TypeScript and
+            animation!
+          </p>
+        </div>
+      </Popup>
+
       {orders.map((order) => (
         <Styles.Element key={order.id} onClick={() => handleElement(order.id)}>
           <Styles.Description>{order.description}</Styles.Description>
@@ -27,7 +45,7 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
           </Styles.BurgerBlock>
 
           <Styles.CountProducts>
-            <Styles.Count>{order.products.length}</Styles.Count>
+            <Styles.Count>{order.products?.length}</Styles.Count>
             <span>Продукта</span>
           </Styles.CountProducts>
 

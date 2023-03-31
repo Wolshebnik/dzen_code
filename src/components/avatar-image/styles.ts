@@ -32,7 +32,10 @@ export const Circle = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.white};
+    box-shadow: ${theme.shadow};
+  `}
 `;
