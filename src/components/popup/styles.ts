@@ -54,9 +54,9 @@ export const Overlay = styled.div<PopupStylesProps>`
 
   background-color: rgba(0, 0, 0, 0.5);
 
-  ${({ isOverlayOpen, duration }) => css`
-    animation: ${isOverlayOpen ? fadeIn : fadeOut} ${duration}ms linear;
-    visibility: ${isOverlayOpen ? 'visible' : 'hidden'};
+  ${({ isDelay, duration }) => css`
+    animation: ${isDelay ? fadeIn : fadeOut} ${duration}ms linear;
+    visibility: ${isDelay ? 'visible' : 'hidden'};
     transition: visibility ${duration}ms ease-out;
   `}
 `;
@@ -65,10 +65,10 @@ export const PopupContainer = styled.div<PopupStylesProps>`
   position: relative;
   border-radius: 6px;
 
-  ${({ theme, isOverlayOpen, duration }) => css`
+  ${({ theme, isDelay, duration }) => css`
     background-color: ${theme.colors.white};
-    animation: ${isOverlayOpen ? scaleUp : scaleDown} ${duration}ms linear;
-    visibility: ${isOverlayOpen ? 'visible' : 'hidden'};
+    animation: ${isDelay ? scaleUp : scaleDown} ${duration}ms linear;
+    visibility: ${isDelay ? 'visible' : 'hidden'};
     transition: visibility ${duration}ms ease-out;
   `}
 `;

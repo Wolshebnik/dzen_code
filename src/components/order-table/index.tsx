@@ -1,13 +1,16 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 
 import * as Icon from 'assets';
 import { IOrders } from 'mock/types';
+import { usePopupDelay } from 'hook/delay';
 import { Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
 
+const delay = 300;
+
 export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
-  const [isOpen, onClose] = useState(false);
+  const { isDelay, onClose, isOpen, setIsOpen } = usePopupDelay(delay);
 
   const handleElement = (id: number) => {
     // eslint-disable-next-line no-console
@@ -18,14 +21,17 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
     event.stopPropagation();
     // eslint-disable-next-line no-console
     console.log(id);
-    onClose(true);
+    setIsOpen(true);
   };
 
   return (
     <Styles.Block>
-      <Popup isOpen={isOpen} onClose={() => onClose(false)}>
-        {/*  eslint-disable-next-line no-console */}
-        <WindowDelete onClick={() => console.log('close')} />
+      <Popup delay={delay} isOpen={isOpen} onClose={onClose} isDelay={isDelay}>
+        <WindowDelete
+          onClose={onClose}
+          // eslint-disable-next-line no-console
+          onClick={() => console.log('close')}
+        />
       </Popup>
 
       {orders.map((order) => (

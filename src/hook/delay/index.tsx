@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react';
 
-export const usePopupDelay = (
-  delay: number,
-  isOpen: boolean,
-  onClose: () => void
-) => {
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+export const usePopupDelay = (delay: number) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDelay, setIsDelay] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      setIsOverlayOpen(true);
+      setIsDelay(true);
     }
   }, [isOpen]);
 
-  const handleClick = () => {
-    setIsOverlayOpen(false);
+  const onClose = () => {
+    setIsDelay(false);
+
     const timeout = setTimeout(() => {
-      onClose();
+      setIsOpen(false);
       clearTimeout(timeout);
     }, delay);
   };
 
-  return { isOverlayOpen, handleClick };
+  return { isOpen, setIsOpen, isDelay, onClose };
 };

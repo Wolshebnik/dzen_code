@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
 
 import * as Icon from 'assets';
-import { usePopupDelay } from 'hook/delay';
 
 import * as Styles from './styles';
 import { ChildrenProps, IPopup } from './types';
 
-const delay = 300;
-
-const Popup = ({ isOpen, onClose, children }: ChildrenProps<IPopup>) => {
+const Popup = ({
+  delay,
+  isOpen,
+  onClose,
+  isDelay,
+  children,
+}: ChildrenProps<IPopup>) => {
   const div = document.getElementById('wrapper');
-
-  const { isOverlayOpen, handleClick } = usePopupDelay(delay, isOpen, onClose);
 
   useEffect(() => {
     if (isOpen && div) {
@@ -23,18 +24,14 @@ const Popup = ({ isOpen, onClose, children }: ChildrenProps<IPopup>) => {
   return (
     <>
       {isOpen && (
-        <Styles.Overlay
-          duration={delay}
-          onClick={handleClick}
-          isOverlayOpen={isOverlayOpen}
-        >
+        <Styles.Overlay duration={delay} onClick={onClose} isDelay={isDelay}>
           <Styles.PopupContainer
             duration={delay}
-            isOverlayOpen={isOverlayOpen}
+            isDelay={isDelay}
             onClick={(e) => e.stopPropagation()}
           >
             {children}
-            <Styles.ButtonClose onClick={handleClick}>
+            <Styles.ButtonClose onClick={onClose}>
               <Icon.Close />
             </Styles.ButtonClose>
           </Styles.PopupContainer>

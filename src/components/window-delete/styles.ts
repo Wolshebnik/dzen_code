@@ -18,7 +18,11 @@ export const Title = styled.h3`
   box-shadow: 0 1px 0 ${({ theme }) => theme.colors.grey};
 `;
 export const ButtonBlock = styled.div`
-  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  padding: 24px 20px;
   background-color: ${({ theme }) => theme.colors.green};
   border-radius: 0 0 6px 6px;
 `;

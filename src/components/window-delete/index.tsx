@@ -1,7 +1,10 @@
+import * as Icon from 'assets';
+
 import * as Styles from './styles';
+import { Button } from '../button';
 import { IWindowDelete } from './types';
 
-export const WindowDelete = ({ onClick }: IWindowDelete) => {
+export const WindowDelete = ({ onClick, onClose }: IWindowDelete) => {
   return (
     <Styles.Block>
       <Styles.TextBlock>
@@ -16,7 +19,8 @@ export const WindowDelete = ({ onClick }: IWindowDelete) => {
         </p>
       </Styles.TextBlock>
       <Styles.ButtonBlock>
-        <button onClick={onClick}>bottom</button>
+        <Button text="Отменить" onClick={onClose} styleType="ghost" />
+        <Button text="Удалить" onClick={onClick} icon={<Icon.Delete />} />
       </Styles.ButtonBlock>
     </Styles.Block>
   );
