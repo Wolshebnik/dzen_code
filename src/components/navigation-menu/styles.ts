@@ -9,6 +9,7 @@ export const Block = styled.nav`
   padding-top: 50px;
   width: 230px;
   height: 100%;
+  z-index: 9;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};

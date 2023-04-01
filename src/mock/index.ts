@@ -5,7 +5,8 @@ export const products: IProducts[] = [
     id: 1,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo:
+      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -24,7 +25,8 @@ export const products: IProducts[] = [
     id: 2,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo:
+      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -43,7 +45,8 @@ export const products: IProducts[] = [
     id: 3,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo:
+      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -62,7 +65,8 @@ export const products: IProducts[] = [
     id: 4,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo:
+      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -81,7 +85,8 @@ export const products: IProducts[] = [
     id: 5,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo:
+      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',

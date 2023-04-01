@@ -1,14 +1,46 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-export const Block = styled.div`
+import { IStyledProps } from './type';
+
+const widthUp = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+`;
+
+const widthDown = keyframes`
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+`;
+
+export const TranslateBlock = styled.div<IStyledProps>`
   position: relative;
+  display: none;
+  flex-direction: column;
   border-radius: 6px;
 
-  ${({ theme }) => css`
-    background-color: ${theme.colors.white};
-    border: 1px solid ${theme.colors.grey};
-    box-shadow: ${theme.shadow};
-  `}
+  ${({ theme, isDuration, duration }) => {
+    return css`
+      background-color: ${theme.colors.white};
+      border: 1px solid ${theme.colors.grey};
+      box-shadow: ${theme.shadow};
+      animation: ${isDuration ? widthUp : widthDown} ${duration}ms ease-in
+        forwards;
+
+      transition: all ${duration}ms ease;
+    `;
+  }};
+`;
+
+export const Block = styled.div<IStyledProps>`
+  overflow: hidden;
 `;
 
 export const StyledClose = styled.div`

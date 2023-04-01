@@ -43,20 +43,20 @@ const scaleDown = keyframes`
 `;
 
 export const Overlay = styled.div<PopupStylesProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 80px;
+  left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 
-  ${({ isDelay, duration }) => css`
-    animation: ${isDelay ? fadeIn : fadeOut} ${duration}ms linear;
-    visibility: ${isDelay ? 'visible' : 'hidden'};
+  ${({ isDuration, duration }) => css`
+    animation: ${isDuration ? fadeIn : fadeOut} ${duration}ms linear;
+    visibility: ${isDuration ? 'visible' : 'hidden'};
     transition: visibility ${duration}ms ease-out;
   `}
 `;
@@ -65,10 +65,10 @@ export const PopupContainer = styled.div<PopupStylesProps>`
   position: relative;
   border-radius: 6px;
 
-  ${({ theme, isDelay, duration }) => css`
+  ${({ theme, isDuration, duration }) => css`
     background-color: ${theme.colors.white};
-    animation: ${isDelay ? scaleUp : scaleDown} ${duration}ms linear;
-    visibility: ${isDelay ? 'visible' : 'hidden'};
+    animation: ${isDuration ? scaleUp : scaleDown} ${duration}ms linear;
+    visibility: ${isDuration ? 'visible' : 'hidden'};
     transition: visibility ${duration}ms ease-out;
   `}
 `;

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Block = styled.div`
   display: flex;
   align-items: flex-start;
+
   gap: 10px;
 `;
 
@@ -13,18 +14,18 @@ export const ElementBlock = styled.div`
   width: 100%;
 `;
 
-export const Element = styled.div`
+export const Element = styled.div<{ isDuration: boolean }>`
   display: grid;
-  grid-template-columns:
-    minmax(200px, 3fr) 40px minmax(80px, 1fr) minmax(100px, 1fr)
-    minmax(100px, 1fr) 24px;
   align-items: center;
   gap: 10px;
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
   cursor: pointer;
-  overflow: hidden;
+  grid-template-columns:
+    minmax(200px, 3fr) 40px minmax(80px, 1fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr) 24px;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};

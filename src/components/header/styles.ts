@@ -7,7 +7,7 @@ export const Block = styled.div`
   align-items: center;
   padding: 0 200px;
   height: 80px;
-  z-index: 1;
+  z-index: 10;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};

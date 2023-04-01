@@ -1,32 +1,35 @@
-import { MouseEvent } from 'react';
-
 import * as Icon from 'assets';
 import { IOrders } from 'mock/types';
 import { usePopupDelay } from 'hook/delay';
-import { Modal, Popup, WindowDelete } from 'components';
+import { ModalProduct, Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
 
-const delay = 300;
+const duration = 300;
 
 export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
-  const { isDelay, onClose, isOpen, setIsOpen } = usePopupDelay(delay);
+  const { isDuration, onClose, isOpen, setIsOpen } = usePopupDelay(duration);
+  const {
+    isOpen: isOpenProduct,
+    onClose: onCloseProduct,
+    setIsOpen: setIsOpenProduct,
+    isDuration: isDurationProduct,
+  } = usePopupDelay(duration);
 
   const handleElement = (id: number) => {
     // eslint-disable-next-line no-console
     console.log({ id });
-  };
-
-  const handleDelete = (event: MouseEvent<HTMLSpanElement>, id: number) => {
-    event.stopPropagation();
-    // eslint-disable-next-line no-console
-    console.log(id);
-    setIsOpen(true);
+    setIsOpenProduct(true);
   };
 
   return (
     <Styles.Block>
-      <Popup delay={delay} isOpen={isOpen} onClose={onClose} isDelay={isDelay}>
+      <Popup
+        isOpen={isOpen}
+        onClose={onClose}
+        duration={duration}
+        isDuration={isDuration}
+      >
         <WindowDelete
           onClose={onClose}
           // eslint-disable-next-line no-console
@@ -38,6 +41,7 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
         {orders.map((order) => (
           <Styles.Element
             key={order.id}
+            isDuration={isDurationProduct}
             onClick={() => handleElement(order.id)}
           >
             <Styles.Description>{order.description}</Styles.Description>
@@ -55,14 +59,20 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
 
             <Styles.MoneyBlock>25 000.00 uah</Styles.MoneyBlock>
 
-            <Styles.DeleteBlock onClick={(e) => handleDelete(e, order.id)}>
+            <Styles.DeleteBlock>
               <Icon.Delete />
             </Styles.DeleteBlock>
           </Styles.Element>
         ))}
       </Styles.ElementBlock>
 
-      <Modal />
+      <ModalProduct
+        duration={duration}
+        setIsOpen={setIsOpen}
+        isOpen={isOpenProduct}
+        onClose={onCloseProduct}
+        isDuration={isDurationProduct}
+      />
     </Styles.Block>
   );
 };

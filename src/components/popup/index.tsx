@@ -6,11 +6,11 @@ import * as Styles from './styles';
 import { ChildrenProps, IPopup } from './types';
 
 const Popup = ({
-  delay,
   isOpen,
   onClose,
-  isDelay,
+  duration,
   children,
+  isDuration,
 }: ChildrenProps<IPopup>) => {
   const div = document.getElementById('wrapper');
 
@@ -24,10 +24,14 @@ const Popup = ({
   return (
     <>
       {isOpen && (
-        <Styles.Overlay duration={delay} onClick={onClose} isDelay={isDelay}>
+        <Styles.Overlay
+          onClick={onClose}
+          duration={duration}
+          isDuration={isDuration}
+        >
           <Styles.PopupContainer
-            duration={delay}
-            isDelay={isDelay}
+            duration={duration}
+            isDuration={isDuration}
             onClick={(e) => e.stopPropagation()}
           >
             {children}
