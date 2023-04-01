@@ -1,8 +1,10 @@
+import { useLoaderData } from 'react-router-dom';
+
+import { IOrders } from 'types';
 import { OrderTable, Title } from 'components';
 
-import { orders } from 'mock';
-
 export const Orders = () => {
+  const orders = useLoaderData() as IOrders[];
   return (
     <>
       <Title />

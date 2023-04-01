@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 
 import * as Icon from 'assets';
+import { ChildrenProps } from 'types';
 
 import * as Styles from './styles';
-import { ChildrenProps, IPopup } from './types';
+import { IPopup } from './types';
 
 const Popup = ({
   isOpen,

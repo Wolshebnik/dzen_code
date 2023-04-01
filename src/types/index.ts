@@ -1,3 +1,5 @@
+import { PropsWithChildren } from 'react';
+
 interface Price {
   value: number;
   symbol: string;
@@ -30,3 +32,5 @@ export interface IOrders {
   description: string;
   products: IProducts[];
 }
+
+export type ChildrenProps<T = unknown> = PropsWithChildren<T>;
