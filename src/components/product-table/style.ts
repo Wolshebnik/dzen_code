@@ -26,7 +26,6 @@ export const Element = styled.div`
     color: ${theme.colors.table.color};
     box-shadow: ${theme.shadow};
     border: 1px solid ${theme.colors.table.border};
-    transition: ${theme.transition};
   `}
 `;
 
@@ -41,26 +40,29 @@ export const Image = styled.img`
   height: 40px;
   object-fit: cover;
 `;
-const children = css`
+
+export const Guarantee = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  > :first-child {
+  > span {
+    font-size: 12px;
+  }
+`;
+
+export const Price = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > span {
     font-size: 12px;
   }
 
   > :last-child {
     font-weight: 500;
   }
-`;
-
-export const Guarantee = styled.div`
-  ${children};
-`;
-
-export const Price = styled.div`
-  ${children};
 `;
 
 export const OrderName = styled.div`

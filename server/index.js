@@ -28,10 +28,9 @@ let products = [
     id: 2,
     serialNumber: 1234,
     isNew: 1,
-    photo:
-      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
+    photo: 'https://s.ek.ua/jpg_zoom1/2340287.jpg',
     title: 'Product 2',
-    type: 'Monitors',
+    type: 'Корпуса',
     specification: 'Specification 2',
     guarantee: {
       start: '2017-06-29 12:09:33',
@@ -49,9 +48,9 @@ let products = [
     serialNumber: 1234,
     isNew: 1,
     photo:
-      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
+      'https://a.428.ua/img/2599674/3000/2000/blok_pitaniya_850w_gigabyte_gp-p850gm~955~739.jpg',
     title: 'Product 3',
-    type: 'Monitors',
+    type: 'Блоки питания',
     specification: 'Specification 3',
     guarantee: {
       start: '2017-06-29 12:09:33',
@@ -68,10 +67,9 @@ let products = [
     id: 4,
     serialNumber: 1234,
     isNew: 1,
-    photo:
-      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
+    photo: 'https://files.foxtrot.com.ua/PhotoNew/img_0_22334_983_6.jpg',
     title: 'Product 4',
-    type: 'Monitors',
+    type: 'Материнские платы',
     specification: 'Specification 4',
     guarantee: {
       start: '2017-06-29 12:09:33',
@@ -88,10 +86,9 @@ let products = [
     id: 5,
     serialNumber: 1234,
     isNew: 1,
-    photo:
-      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
+    photo: 'https://s.ek.ua/jpg_zoom1/1864364.jpg',
     title: 'Product 5',
-    type: 'Monitors',
+    type: 'Видиокарты',
     specification: 'Specification 5',
     guarantee: {
       start: '2017-06-29 12:09:33',
@@ -108,10 +105,9 @@ let products = [
     id: 6,
     serialNumber: 1234,
     isNew: 1,
-    photo:
-      'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
+    photo: 'https://elmir.ua/pictures/seo/SSD%20(2).jpg',
     title: 'Product 6',
-    type: 'Monitors',
+    type: 'SSD-Накопители',
     specification: 'Specification 6',
     guarantee: {
       start: '2017-06-29 12:09:33',

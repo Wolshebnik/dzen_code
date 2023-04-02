@@ -16,8 +16,13 @@ export const ProductTable = ({ products }: IProductProps) => {
           <p>{product.type}</p>
 
           <Styles.Guarantee>
-            <span>c {formatDate(product.guarantee.start)}</span>
-            <span>по {formatDate(product.guarantee.end)}</span>
+            <span>
+              c&nbsp;
+              <strong>{formatDate(product.guarantee.start)}</strong>
+            </span>
+            <span>
+              по&nbsp;<strong>{formatDate(product.guarantee.end)}</strong>
+            </span>
           </Styles.Guarantee>
 
           <Styles.Price>

@@ -6,5 +6,6 @@ export { NavigationMenu } from './navigation-menu';
 export { OrderTable } from './order-table';
 export { Popup } from './popup';
 export { ProductTable } from './product-table';
+export { Select } from './select';
 export { Title } from './title';
 export { WindowDelete } from './window-delete';
