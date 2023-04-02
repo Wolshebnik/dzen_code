@@ -123,10 +123,18 @@ export const Description = styled.div`
   flex-direction: column;
 `;
 
-export const Name = styled.span``;
-export const SerialNumber = styled.span``;
+export const Name = styled.span`
+  font-weight: 500;
+`;
 
-export const Status = styled.div``;
+export const SerialNumber = styled.span`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.grey};
+`;
+
+export const Status = styled.div`
+  color: ${({ theme }) => theme.colors.green};
+`;
 
 export const WrapIcon = styled.span`
   display: flex;

@@ -48,7 +48,10 @@ export const ModalProduct = ({
                   <Styles.Image src={product.photo} alt="product" />
                   <Styles.Description>
                     <Styles.Name>{product.specification}</Styles.Name>
-                    <Styles.Name>{product.serialNumber}</Styles.Name>
+
+                    <Styles.SerialNumber>
+                      {product.serialNumber}
+                    </Styles.SerialNumber>
                   </Styles.Description>
 
                   <Styles.Status>Свободен</Styles.Status>

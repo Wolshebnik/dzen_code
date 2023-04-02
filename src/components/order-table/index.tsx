@@ -39,19 +39,15 @@ export const OrderTable = ({ orders, setOrders }: IOrdersProps) => {
         const newProducts = products.filter((prod) => prod.id !== deletingId);
 
         setOrders(
-          orders.map((allOrder) => {
-            const newAllOrder = { ...allOrder };
-            if (allOrder.id === activeId) {
-              newAllOrder.products = newProducts;
-            }
-
-            return newAllOrder;
-          })
+          orders.map((order) => ({
+            ...order,
+            products: order.id === activeId ? newProducts : order.products,
+          }))
         );
 
         if (newProducts.length === 0) {
-          const newAllOrders = orders.filter((order) => order.id !== activeId);
-          setOrders(newAllOrders);
+          const newOrders = orders.filter((order) => order.id !== activeId);
+          setOrders(newOrders);
           onCloseProduct();
         }
         setProducts(newProducts);
@@ -64,6 +60,18 @@ export const OrderTable = ({ orders, setOrders }: IOrdersProps) => {
     }
   };
 
+  const getDeletingProduct = () => {
+    if (activeId !== null && deletingId !== null) {
+      const productsByOrder = orders?.find(
+        (order) => order.id === activeId
+      )?.products;
+
+      return productsByOrder?.find((product) => product.id === deletingId);
+    }
+
+    return undefined;
+  };
+
   return (
     <Styles.Block>
       <Popup
@@ -72,7 +80,11 @@ export const OrderTable = ({ orders, setOrders }: IOrdersProps) => {
         duration={duration}
         isDuration={isDuration}
       >
-        <WindowDelete onClose={onClose} onClick={handleDelete} />
+        <WindowDelete
+          onClose={onClose}
+          onClick={handleDelete}
+          product={getDeletingProduct()}
+        />
       </Popup>
 
       <Styles.ElementBlock>

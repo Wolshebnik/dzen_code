@@ -1,22 +1,61 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const wrapper = css`
+  padding: 0 20px;
+`;
 
 export const Block = styled.div`
   width: 100%;
   overflow: hidden;
 `;
 
-export const Wrapper = styled.div`
-  padding: 0 20px;
-`;
-
 export const TextBlock = styled.div`
-  padding: 20px 0;
+  padding-top: 20px;
 `;
 
 export const Title = styled.h3`
+  ${wrapper};
   padding-bottom: 20px;
   box-shadow: 0 1px 0 ${({ theme }) => theme.colors.grey};
 `;
+
+export const ProductBlock = styled.div`
+  ${wrapper};
+  display: grid;
+  grid-template-columns: 10px 40px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+`;
+
+export const Circle = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.green};
+`;
+
+export const Image = styled.img`
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Name = styled.span`
+  font-weight: 500;
+`;
+
+export const SerialNumber = styled.span`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.grey};
+`;
+
 export const ButtonBlock = styled.div`
   display: flex;
   justify-content: flex-end;
