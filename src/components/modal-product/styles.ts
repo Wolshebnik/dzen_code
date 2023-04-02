@@ -31,8 +31,7 @@ export const TranslateBlock = styled.div<IStyledProps>`
       background-color: ${theme.colors.white};
       border: 1px solid ${theme.colors.grey};
       box-shadow: ${theme.shadow};
-      animation: ${isDuration ? widthUp : widthDown} ${duration}ms ease-in
-        forwards;
+      animation: ${isDuration ? widthUp : widthDown} ${duration}ms ease forwards;
 
       transition: all ${duration}ms ease;
     `;

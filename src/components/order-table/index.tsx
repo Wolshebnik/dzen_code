@@ -1,6 +1,9 @@
+import { useState } from 'react';
+
 import * as Icon from 'assets';
-import { IOrders } from 'mock/types';
+import { IOrders, IProducts } from 'types';
 import { usePopupDelay } from 'hook/delay';
+import { addEnding, formatDate, getMoney } from 'utils';
 import { ModalProduct, Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
@@ -8,6 +11,8 @@ import * as Styles from './styles';
 const duration = 300;
 
 export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
+  const [products, setProducts] = useState<IProducts[]>([]);
+
   const { isDuration, onClose, isOpen, setIsOpen } = usePopupDelay(duration);
   const {
     isOpen: isOpenProduct,
@@ -16,9 +21,8 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
     isDuration: isDurationProduct,
   } = usePopupDelay(duration);
 
-  const handleElement = (id: number) => {
-    // eslint-disable-next-line no-console
-    console.log({ id });
+  const handleElement = (value: IProducts[]) => {
+    setProducts(value);
     setIsOpenProduct(true);
   };
 
@@ -42,9 +46,9 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
           <Styles.Element
             key={order.id}
             isDuration={isDurationProduct}
-            onClick={() => handleElement(order.id)}
+            onClick={() => handleElement(order.products)}
           >
-            <Styles.Description>{order.description}</Styles.Description>
+            <h3>{order.title}</h3>
 
             <Styles.BurgerBlock>
               <Icon.Burger />
@@ -52,12 +56,18 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
 
             <Styles.CountProducts>
               <Styles.Count>{order.products?.length}</Styles.Count>
-              <span>Продукта</span>
+              <span>{addEnding(order.products?.length, 'Продукт')}</span>
             </Styles.CountProducts>
 
-            <Styles.DateBlock>{order.date}</Styles.DateBlock>
+            <Styles.DateBlock>
+              <span>{formatDate(order.date, 'M/dd')}</span>
+              <span>{formatDate(order.date)}</span>
+            </Styles.DateBlock>
 
-            <Styles.MoneyBlock>25 000.00 uah</Styles.MoneyBlock>
+            <Styles.MoneyBlock>
+              <span>{getMoney(order.products).usd} $</span>
+              <span>{getMoney(order.products).uah} UAH</span>
+            </Styles.MoneyBlock>
 
             <Styles.DeleteBlock>
               <Icon.Delete />
@@ -67,6 +77,7 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
       </Styles.ElementBlock>
 
       <ModalProduct
+        products={products}
         duration={duration}
         setIsOpen={setIsOpen}
         isOpen={isOpenProduct}

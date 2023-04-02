@@ -16,16 +16,17 @@ export const ElementBlock = styled.div`
 
 export const Element = styled.div<{ isDuration: boolean }>`
   display: grid;
+  grid-template-columns:
+    minmax(200px, 3fr) 40px minmax(80px, 0.5fr)
+    minmax(120px, 1fr)
+    minmax(120px, 1fr) 24px;
   align-items: center;
   gap: 10px;
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
   cursor: pointer;
-  grid-template-columns:
-    minmax(200px, 3fr) 40px minmax(80px, 1fr)
-    minmax(100px, 1fr)
-    minmax(100px, 1fr) 24px;
+  overflow: hidden;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
@@ -40,8 +41,6 @@ export const Element = styled.div<{ isDuration: boolean }>`
     }
   `}
 `;
-
-export const Description = styled.div``;
 
 export const BurgerBlock = styled.div`
   display: flex;
@@ -66,9 +65,27 @@ export const Count = styled.span`
   }
 `;
 
-export const DateBlock = styled.div``;
+const children = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-export const MoneyBlock = styled.div``;
+  > :first-child {
+    font-size: 12px;
+  }
+
+  > :last-child {
+    font-weight: 500;
+  }
+`;
+
+export const DateBlock = styled.div`
+  ${children};
+`;
+
+export const MoneyBlock = styled.div`
+  ${children};
+`;
 
 export const DeleteBlock = styled.span`
   display: flex;

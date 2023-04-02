@@ -181,7 +181,7 @@ let products = [
       { value: 100, symbol: 'USD', isDefault: 0 },
       { value: 2600, symbol: 'UAH', isDefault: 1 },
     ],
-    order: 7,
+    order: 1,
     date: '2017-06-29 12:09:33',
   },
   {
@@ -201,7 +201,7 @@ let products = [
       { value: 100, symbol: 'USD', isDefault: 0 },
       { value: 2600, symbol: 'UAH', isDefault: 1 },
     ],
-    order: 8,
+    order: 1,
     date: '2017-06-29 12:09:33',
   },
 ];
@@ -242,18 +242,6 @@ let orders = [
     title: 'Order 6',
     date: '2017-06-29 12:09:33',
     description: 'Order 6',
-  },
-  {
-    id: 7,
-    title: 'Order 7',
-    date: '2017-06-29 12:09:33',
-    description: 'Order 7',
-  },
-  {
-    id: 8,
-    title: 'Order 8',
-    date: '2017-06-29 12:09:33',
-    description: 'Order 8',
   },
 ];
 
