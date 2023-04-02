@@ -12,6 +12,7 @@ const duration = 300;
 
 export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
   const [products, setProducts] = useState<IProducts[]>([]);
+  const [activeId, setActiveId] = useState<null | number>(null);
 
   const { isDuration, onClose, isOpen, setIsOpen } = usePopupDelay(duration);
   const {
@@ -21,7 +22,9 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
     isDuration: isDurationProduct,
   } = usePopupDelay(duration);
 
-  const handleElement = (value: IProducts[]) => {
+  const handleElement = (value: IProducts[], id: number) => {
+    if (isOpenProduct) return;
+    setActiveId(id);
     setProducts(value);
     setIsOpenProduct(true);
   };
@@ -45,9 +48,16 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
         {orders.map((order) => (
           <Styles.Element
             key={order.id}
+            active={activeId === order.id}
             isDuration={isDurationProduct}
-            onClick={() => handleElement(order.products)}
+            onClick={() => handleElement(order.products, order.id)}
           >
+            <Styles.Chevron
+              active={activeId === order.id}
+              isDuration={isDurationProduct}
+            >
+              <Icon.ChevronRight />
+            </Styles.Chevron>
             <h3>{order.title}</h3>
 
             <Styles.BurgerBlock>

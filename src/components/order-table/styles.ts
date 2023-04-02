@@ -14,7 +14,8 @@ export const ElementBlock = styled.div`
   width: 100%;
 `;
 
-export const Element = styled.div<{ isDuration: boolean }>`
+export const Element = styled.div<{ active: boolean; isDuration: boolean }>`
+  position: relative;
   display: grid;
   grid-template-columns:
     minmax(200px, 3fr) 40px minmax(80px, 0.5fr)
@@ -25,19 +26,53 @@ export const Element = styled.div<{ isDuration: boolean }>`
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
-  cursor: pointer;
+
   overflow: hidden;
 
-  ${({ theme }) => css`
+  ${({ theme, active, isDuration }) => css`
     background-color: ${theme.colors.white};
     color: ${theme.colors.table.color};
     box-shadow: ${theme.shadow};
     border: 1px solid ${theme.colors.table.border};
     transition: ${theme.transition};
 
-    :hover {
+    ${active &&
+    isDuration &&
+    css`
       box-shadow: none;
       background-color: ${theme.colors.background};
+    `}
+
+    ${!isDuration &&
+    css`
+      :hover {
+        cursor: pointer;
+        box-shadow: none;
+        background-color: ${theme.colors.background};
+      }
+    `}
+  `}
+`;
+
+export const Chevron = styled.div<{ isDuration: boolean; active: boolean }>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 80px;
+
+  ${({ theme, isDuration, active }) => css`
+    transition: ${theme.transition};
+    transform: translateX(${active && isDuration ? 0 : 100}%);
+    background-color: ${theme.colors.greyLighten};
+
+    > svg {
+      path {
+        fill: ${theme.colors.white};
+      }
     }
   `}
 `;

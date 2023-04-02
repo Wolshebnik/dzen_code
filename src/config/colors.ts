@@ -4,6 +4,7 @@ const whiteHover = '#f2f2f2';
 const black = '#202020';
 const background = '#E5E5E5';
 const grey = '#bdbdbd';
+const greyLighten = '#d2d2d2';
 const greyDarken = '#8E8E8E';
 const green = '#43b15d';
 const red = '#DD2F2F';
@@ -42,5 +43,6 @@ export const COLORS = Object.freeze({
   table,
   button,
   header,
+  greyLighten,
   background,
 });
