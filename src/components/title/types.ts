@@ -1,5 +1,6 @@
 export interface ITitle {
+  text: string;
   count?: number;
-  isSelect?: boolean;
   values?: string[];
+  isSelect?: boolean;
 }

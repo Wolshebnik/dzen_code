@@ -35,7 +35,12 @@ export const Products = () => {
 
   return (
     <>
-      <Title count={filteredProducts.length} isSelect values={valueSelect} />
+      <Title
+        isSelect
+        text="Продукты"
+        values={valueSelect}
+        count={filteredProducts.length}
+      />
 
       <ProductTable products={filteredProducts} />
     </>

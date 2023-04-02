@@ -9,7 +9,7 @@ export const Orders = () => {
   const [allOrders, setAllOrders] = useState<IOrders[]>(orders || []);
   return (
     <>
-      <Title count={allOrders.length} />
+      <Title text="Приходы" count={allOrders.length} />
 
       <OrderTable orders={allOrders} setOrders={setAllOrders} />
     </>
