@@ -1,19 +1,18 @@
 import { useState } from 'react';
 
 import * as Icon from 'assets';
-import { IOrders, IProducts } from 'types';
+import { IProducts } from 'types';
+import { deleteProduct } from 'api';
 import { usePopupDelay } from 'hook/delay';
 import { addEnding, formatDate, getMoney } from 'utils';
 import { ModalProduct, Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
+import { IOrdersProps } from './types';
 
 const duration = 300;
 
-export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
-  const [products, setProducts] = useState<IProducts[]>([]);
-  const [activeId, setActiveId] = useState<null | number>(null);
-
+export const OrderTable = ({ orders, setOrders }: IOrdersProps) => {
   const { isDuration, onClose, isOpen, setIsOpen } = usePopupDelay(duration);
   const {
     isOpen: isOpenProduct,
@@ -22,11 +21,47 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
     isDuration: isDurationProduct,
   } = usePopupDelay(duration);
 
+  const [products, setProducts] = useState<IProducts[]>([]);
+  const [activeId, setActiveId] = useState<null | number>(null);
+  const [deletingId, setDeletingId] = useState<null | number>(null);
+
   const handleElement = (value: IProducts[], id: number) => {
     if (isOpenProduct) return;
     setActiveId(id);
     setProducts(value);
     setIsOpenProduct(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      if (deletingId) {
+        await deleteProduct(deletingId);
+        const newProducts = products.filter((prod) => prod.id !== deletingId);
+
+        setOrders(
+          orders.map((allOrder) => {
+            const newAllOrder = { ...allOrder };
+            if (allOrder.id === activeId) {
+              newAllOrder.products = newProducts;
+            }
+
+            return newAllOrder;
+          })
+        );
+
+        if (newProducts.length === 0) {
+          const newAllOrders = orders.filter((order) => order.id !== activeId);
+          setOrders(newAllOrders);
+          onCloseProduct();
+        }
+        setProducts(newProducts);
+        setDeletingId(null);
+        onClose();
+      }
+    } catch (e: any) {
+      // eslint-disable-next-line no-console
+      console.log(e?.response?.data?.error?.message);
+    }
   };
 
   return (
@@ -37,11 +72,7 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
         duration={duration}
         isDuration={isDuration}
       >
-        <WindowDelete
-          onClose={onClose}
-          // eslint-disable-next-line no-console
-          onClick={() => console.log('close')}
-        />
+        <WindowDelete onClose={onClose} onClick={handleDelete} />
       </Popup>
 
       <Styles.ElementBlock>
@@ -91,6 +122,7 @@ export const OrderTable = ({ orders }: { orders: IOrders[] }) => {
         duration={duration}
         setIsOpen={setIsOpen}
         isOpen={isOpenProduct}
+        onDelete={setDeletingId}
         onClose={onCloseProduct}
         isDuration={isDurationProduct}
       />

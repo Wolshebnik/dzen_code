@@ -1,14 +1,15 @@
+import { useRef, useEffect } from 'react';
 import * as Icon from 'assets';
 
 import { IModal } from './type';
 import * as Styles from './styles';
-import { useRef, useEffect } from 'react';
 
 export const ModalProduct = ({
   isOpen,
   onClose,
   duration,
   products,
+  onDelete,
   setIsOpen,
   isDuration,
 }: IModal) => {
@@ -23,10 +24,6 @@ export const ModalProduct = ({
       }, duration);
     }
   }, [isOpen, isDuration]);
-
-  const handleDelete = () => {
-    setIsOpen(true);
-  };
 
   return (
     <>
@@ -56,7 +53,12 @@ export const ModalProduct = ({
 
                   <Styles.Status>Свободен</Styles.Status>
 
-                  <Styles.WrapIcon onClick={handleDelete}>
+                  <Styles.WrapIcon
+                    onClick={() => {
+                      setIsOpen(true);
+                      onDelete(product.id);
+                    }}
+                  >
                     <Icon.Delete />
                   </Styles.WrapIcon>
                 </Styles.Element>

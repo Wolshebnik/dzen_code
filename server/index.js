@@ -248,12 +248,16 @@ let orders = [
 app.use(cors());
 
 app.get('/orders', (req, res) => {
-  const combineOrders = orders.map((order) => {
+  const combineOrders = orders.reduce((acc, order) => {
     const newProducts = products.filter(
       (product) => product.order === order.id
     );
-    return { ...order, products: newProducts };
-  });
+    if (newProducts.length > 0) {
+      acc.push({ ...order, products: newProducts });
+    }
+    return acc;
+  }, []);
+
   res.json(combineOrders);
 });
 
@@ -263,9 +267,10 @@ app.get('/products', (req, res) => {
 
 app.delete('/products/:id', (req, res) => {
   const newProducts = products.filter(
-    (product) => product.id !== +req.query.id
+    (product) => product.id !== +req.params.id
   );
   products = newProducts;
+
   res.sendStatus(200);
 });
 

@@ -5,8 +5,9 @@ export interface IModal {
   duration: number;
   isDuration: boolean;
   onClose: () => void;
-  setIsOpen: (value: boolean) => void;
   products: IProducts[];
+  onDelete: (id: number) => void;
+  setIsOpen: (bool: boolean) => void;
 }
 
 export interface IStyledProps {

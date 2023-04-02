@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 export const Block = styled.div`
   display: flex;
   align-items: flex-start;
-
   gap: 10px;
 `;
 
@@ -26,7 +25,6 @@ export const Element = styled.div<{ active: boolean; isDuration: boolean }>`
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
-
   overflow: hidden;
 
   ${({ theme, active, isDuration }) => css`

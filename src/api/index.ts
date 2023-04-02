@@ -1,16 +1,15 @@
 import axios from 'axios';
 
-const instance = axios.create({
+const dzen = axios.create({
   baseURL: 'http://localhost:7000',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-export const getOrders = () => {
-  return instance.get('/orders').then(({ data }) => data);
-};
+export const getOrders = () => dzen.get('/orders').then(({ data }) => data);
 
-export const getProducts = () => {
-  return instance.get('/products').then(({ data }) => data);
-};
+export const getProducts = () => dzen.get('/products').then(({ data }) => data);
+
+export const deleteProduct = (id: number) =>
+  dzen.delete(`/products/${id}`).then(({ data }) => data);
