@@ -262,7 +262,11 @@ app.get('/orders', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-  res.json(products);
+  const combineProducts = products.map((product) => {
+    const con = orders.find((order) => order.id === product.order);
+    return { ...product, orderName: con.title };
+  });
+  res.json(combineProducts);
 });
 
 app.delete('/products/:id', (req, res) => {

@@ -33,4 +33,8 @@ export interface IOrders {
   products: IProducts[];
 }
 
+export interface IExpandedProducts extends IProducts {
+  orderName: string;
+}
+
 export type ChildrenProps<T = unknown> = PropsWithChildren<T>;

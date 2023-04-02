@@ -122,5 +122,4 @@ export const MoneyBlock = styled.div`
 
 export const DeleteBlock = styled.span`
   display: flex;
-  cursor: pointer;
 `;

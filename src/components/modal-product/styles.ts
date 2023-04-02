@@ -89,7 +89,6 @@ export const Element = styled.div`
   gap: 20px;
   padding: 0 20px;
   height: 70px;
-  cursor: pointer;
 
   ${({ theme }) => css`
     transition: ${theme.transition};
@@ -138,8 +137,21 @@ export const Status = styled.div`
 
 export const WrapIcon = styled.span`
   display: flex;
+  cursor: pointer;
 
   > svg {
     width: 20px;
+
+    ${({ theme }) => css`
+      transition: ${theme.transition};
+
+      :hover {
+        transform: scale(1.1);
+        > path {
+          transition: ${theme.transition};
+          fill: ${theme.colors.button.delete.color};
+        }
+      }
+    `}
   }
 `;
