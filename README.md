@@ -1,15 +1,18 @@
-# Getting Started with Create React App
+# DZEN CODE Test Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Short description: DZEN CODE test task using React Router DOM and animation.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+1. Clone the project from GitHub repository with the command `git clone https://github.com/Wolshebnik/dzen_code.git` in your console or terminal.
+2. Make sure you have Node.js and npm installed.
+3. Run the command `npm i` to install all project dependencies.
 
-### `npm start`
+## Running the App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Run the command `npm start` to start the project.
+2. The application will be available at [http://localhost:3000](http://localhost:3000).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Contributors
+
+- Andrey Teslenko - andteslenko@gmail.com
