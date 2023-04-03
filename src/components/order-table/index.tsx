@@ -5,7 +5,7 @@ import { IProducts } from 'types';
 import { deleteProduct } from 'api';
 import { usePopupDelay } from 'hook/delay';
 import { addEnding, formatDate, getMoney } from 'utils';
-import { ModalProduct, Popup, WindowDelete } from 'components';
+import { EllipsisText, ModalProduct, Popup, WindowDelete } from 'components';
 
 import * as Styles from './styles';
 import { IOrdersProps } from './types';
@@ -101,7 +101,10 @@ export const OrderTable = ({ orders, setOrders }: IOrdersProps) => {
             >
               <Icon.ChevronRight />
             </Styles.Chevron>
-            <h3>{order.title}</h3>
+
+            <Styles.Title>
+              <EllipsisText>{order.title}</EllipsisText>
+            </Styles.Title>
 
             <Styles.BurgerBlock>
               <Icon.Burger />

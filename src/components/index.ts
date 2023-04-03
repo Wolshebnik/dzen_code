@@ -1,5 +1,6 @@
 export { AvatarImage } from './avatar-image';
 export { Button } from './button';
+export { EllipsisText } from './ellipsis-text';
 export { Header } from './header';
 export { ModalProduct } from './modal-product';
 export { NavigationMenu } from './navigation-menu';

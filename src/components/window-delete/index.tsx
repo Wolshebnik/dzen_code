@@ -1,4 +1,5 @@
 import * as Icon from 'assets';
+import { EllipsisText } from 'components';
 
 import * as Styles from './styles';
 import { Button } from '../button';
@@ -18,7 +19,10 @@ export const WindowDelete = ({ onClick, onClose, product }: IWindowDelete) => {
           <Styles.Image src={photo} alt="product" />
 
           <Styles.Description>
-            <Styles.Name>{specification}</Styles.Name>
+            <Styles.Name>
+              <EllipsisText>{specification}</EllipsisText>
+            </Styles.Name>
+
             <Styles.SerialNumber>{serialNumber}</Styles.SerialNumber>
           </Styles.Description>
         </Styles.ProductBlock>

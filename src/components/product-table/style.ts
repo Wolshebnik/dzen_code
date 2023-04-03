@@ -19,7 +19,6 @@ export const Element = styled.div`
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
-  overflow: hidden;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
@@ -33,12 +32,18 @@ export const ProductName = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
 `;
 
 export const Image = styled.img`
   width: 40px;
   height: 40px;
   object-fit: cover;
+`;
+
+export const Title = styled.div`
+  width: 100%;
+  overflow: hidden;
 `;
 
 export const Guarantee = styled.div`
@@ -67,4 +72,5 @@ export const Price = styled.div`
 
 export const OrderName = styled.div`
   justify-self: center;
+  width: 100%;
 `;

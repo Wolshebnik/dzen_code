@@ -1,5 +1,7 @@
 import { useRef, useEffect } from 'react';
+
 import * as Icon from 'assets';
+import { EllipsisText } from 'components';
 
 import { IModal } from './type';
 import * as Styles from './styles';
@@ -46,8 +48,11 @@ export const ModalProduct = ({
                   <Styles.Circle />
 
                   <Styles.Image src={product.photo} alt="product" />
+
                   <Styles.Description>
-                    <Styles.Name>{product.specification}</Styles.Name>
+                    <Styles.Name>
+                      <EllipsisText>{product.specification}</EllipsisText>
+                    </Styles.Name>
 
                     <Styles.SerialNumber>
                       {product.serialNumber}

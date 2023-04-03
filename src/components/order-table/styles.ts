@@ -11,6 +11,7 @@ export const ElementBlock = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  overflow: hidden;
 `;
 
 export const Element = styled.div<{ active: boolean; isDuration: boolean }>`
@@ -25,7 +26,6 @@ export const Element = styled.div<{ active: boolean; isDuration: boolean }>`
   padding: 0 20px;
   height: 80px;
   border-radius: 6px;
-  overflow: hidden;
 
   ${({ theme, active, isDuration }) => css`
     background-color: ${theme.colors.white};
@@ -73,6 +73,10 @@ export const Chevron = styled.div<{ isDuration: boolean; active: boolean }>`
       }
     }
   `}
+`;
+
+export const Title = styled.h3`
+  width: 100%;
 `;
 
 export const BurgerBlock = styled.div`

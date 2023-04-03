@@ -25,6 +25,7 @@ export const TranslateBlock = styled.div<IStyledProps>`
   display: none;
   flex-direction: column;
   border-radius: 6px;
+  width: 100%;
 
   ${({ theme, isDuration, duration }) => {
     return css`
@@ -89,6 +90,7 @@ export const Element = styled.div`
   gap: 20px;
   padding: 0 20px;
   height: 70px;
+  width: 100%;
 
   ${({ theme }) => css`
     transition: ${theme.transition};
@@ -120,9 +122,11 @@ export const Image = styled.img`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Name = styled.span`
+  width: 100%;
   font-weight: 500;
 `;
 

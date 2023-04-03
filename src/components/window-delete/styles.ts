@@ -5,7 +5,7 @@ const wrapper = css`
 `;
 
 export const Block = styled.div`
-  width: 100%;
+  max-width: 600px;
   overflow: hidden;
 `;
 
@@ -48,6 +48,7 @@ export const Description = styled.div`
 `;
 
 export const Name = styled.span`
+  width: 472px;
   font-weight: 500;
 `;
 

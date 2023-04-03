@@ -1,4 +1,5 @@
 import { formatDate } from 'utils';
+import { EllipsisText } from 'components';
 
 import * as Styles from './style';
 import { IProductProps } from './type';
@@ -10,7 +11,10 @@ export const ProductTable = ({ products }: IProductProps) => {
         <Styles.Element key={product.id}>
           <Styles.ProductName>
             <Styles.Image src={product.photo} alt="photo" />
-            <span>{product.title}</span>
+
+            <Styles.Title>
+              <EllipsisText>{product.title}</EllipsisText>
+            </Styles.Title>
           </Styles.ProductName>
 
           <p>{product.type}</p>
@@ -34,7 +38,9 @@ export const ProductTable = ({ products }: IProductProps) => {
             </span>
           </Styles.Price>
 
-          <Styles.OrderName>{product.orderName}</Styles.OrderName>
+          <Styles.OrderName>
+            <EllipsisText>{product.orderName}</EllipsisText>
+          </Styles.OrderName>
         </Styles.Element>
       ))}
     </Styles.Block>

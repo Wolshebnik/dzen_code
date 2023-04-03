@@ -10,9 +10,11 @@ let products = [
     isNew: 1,
     photo:
       'https://images.philips.com/is/image/PhilipsConsumer/346B1C_00-IMS-ru_UA?wid=420&hei=360&$jpglarge$',
-    title: 'Product 1',
+    title:
+      ' Product 1 Product 1 Product 1 Product 1 Product 1 Product 1 Product 1 Product 1 Product 1 Product 1',
     type: 'Monitors',
-    specification: 'Specification 1',
+    specification:
+      ' Specification 1 Specification 1 Specification 1 Specification 1 Specification 1 Specification 1 Specification 1 Specification 1',
     guarantee: {
       start: '2017-06-29 12:09:33',
       end: '2017-06-29 12:09:33',
@@ -205,7 +207,8 @@ let products = [
 let orders = [
   {
     id: 1,
-    title: 'Order 1',
+    title:
+      ' Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1 Order 1',
     date: '2017-06-29 12:09:33',
     description: 'Order 1',
   },
